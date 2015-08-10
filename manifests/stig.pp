@@ -66,7 +66,8 @@ class log::stig {
 # requirements.
 #
 # Impose platform-specific configurations on log files:
-    include "log::stig::${::osfamily}"
+    $lower_osfamily = downcase($::osfamily)
+    include "log::stig::${lower_osfamily}"
 }
 
 # \subsection{Admin guidance regarding logging}
