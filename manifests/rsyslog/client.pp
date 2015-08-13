@@ -23,7 +23,7 @@ class log::rsyslog::client($networkname) {
 # Install the SELinux rules that let rsyslogd talk to the loghost.
     $selmoduledir = "/usr/share/selinux/targeted"
     file { "${selmoduledir}/rsyslog_client.pp":
-        owner => root, group => 0, mode => 0644,
+        owner => root, group => 0, mode => '0644',
         source => "puppet:///modules/log/rsyslog/\
 rsyslog_client.selinux.pp",
     }

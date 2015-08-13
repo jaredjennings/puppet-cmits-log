@@ -36,10 +36,10 @@ define log::rsyslog::to_loghost($networkname, $ipaddress) {
     $loghost = $name
     file { '/var/spool/rsyslog':
         ensure => directory,
-        owner => root, group => 0, mode => 0700,
+        owner => root, group => 0, mode => '0700',
     }
     file { "/etc/rsyslog.d/80send-to-loghost.conf":
-        owner => root, group => 0, mode => 0640,
+        owner => root, group => 0, mode => '0640',
         content => template(
             'log/rsyslog/client-only/80send-to-loghost.conf'),
         notify => Service['rsyslog'],

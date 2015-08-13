@@ -43,13 +43,13 @@ class log::viewable($ssh_public_key) {
     User <| title == "logview" |>
 
     file { "/usr/local/sbin/tail-messages":
-        owner => root, group => 0, mode => 0755,
+        owner => root, group => 0, mode => '0755',
         content => "#!/bin/sh\n\
 sudo /usr/bin/tail -f /var/log/messages\n",
     }
 
     file { "/etc/sudoers.d/logview":
-        owner => root, group => 0, mode => 0440,
+        owner => root, group => 0, mode => '0440',
         content => "Defaults:logview !requiretty\n\
 logview ALL=(ALL) \
         NOPASSWD:/usr/bin/tail -f /var/log/messages\n",

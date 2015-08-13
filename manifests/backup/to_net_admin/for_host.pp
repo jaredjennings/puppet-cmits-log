@@ -18,9 +18,9 @@ define log::backup::to_net_admin::for_host {
     file {
         "/net/admin/BACKUPS/${name}":
             ensure => directory,
-            owner => root, group => skadmin, mode => 2755;
+            owner => root, group => skadmin, mode => '2755';
         "/net/admin/BACKUPS/${name}/LOGS":
             ensure => directory,
-            owner => root, group => skadmin, mode => 2755;
+            owner => root, group => skadmin, mode => '2755';
     }
 }

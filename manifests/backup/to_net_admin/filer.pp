@@ -19,7 +19,7 @@
 class log::backup::to_net_admin::filer {
     file { "/net/admin/BACKUPS":
         ensure => directory,
-        owner => root, group => skadmin, mode => 2770,
+        owner => root, group => skadmin, mode => '2770',
     }
 
 # Collect the directories each host has requested; implement those policies on

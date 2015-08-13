@@ -22,7 +22,7 @@
 
 class log::backup::to_net_admin {
     file { "/etc/cron.daily/backup_logs":
-        owner => root, group => 0, mode => 0700,
+        owner => root, group => 0, mode => '0700',
         source => "file:///puppet/modules/log/backup/to_net_admin.sh",
     }
 

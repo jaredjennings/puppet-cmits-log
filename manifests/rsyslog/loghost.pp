@@ -44,7 +44,7 @@ class log::rsyslog::loghost($networkname) {
 # Install the SELinux rules that let rsyslogd listen to clients.
     $selmoduledir = "/usr/share/selinux/targeted"
     file { "${selmoduledir}/rsyslog_loghost.pp":
-        owner => root, group => 0, mode => 0644,
+        owner => root, group => 0, mode => '0644',
         source => "puppet:///modules/log/rsyslog/\
 rsyslog_loghost.selinux.pp",
     }
@@ -63,7 +63,7 @@ rsyslog_loghost.selinux.pp",
 # The locations of these files are written in the \verb!rsyslog.conf! file.
 
     file { '/etc/rsyslog.d/20loghost.conf':
-        owner => root, group => 0, mode => 0640,
+        owner => root, group => 0, mode => '0640',
         content => template(
             'log/rsyslog/loghost-only/20loghost.conf'),
         notify => Service['rsyslog'],

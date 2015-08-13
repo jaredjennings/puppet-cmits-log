@@ -67,10 +67,10 @@ class log::rsyslog {
     file {
         "/etc/rsyslog.d":
             ensure => directory,
-            owner => root, group => 0, mode => 0640,
+            owner => root, group => 0, mode => '0640',
             recurse => true;
         "/etc/rsyslog.conf":
-            owner => root, group => 0, mode => 0640,
+            owner => root, group => 0, mode => '0640',
             content => "\$IncludeConfig /etc/rsyslog.d/*.conf\n",
             require => File['/etc/rsyslog.d'],
             notify => Service['rsyslog'];
@@ -83,7 +83,7 @@ class log::rsyslog {
 
     define common_conf() {
         file { "/etc/rsyslog.d/${name}":
-            owner => root, group => 0, mode => 0640,
+            owner => root, group => 0, mode => '0640',
             content => template("log/rsyslog/${name}"),
             notify => Service['rsyslog'],
         }
